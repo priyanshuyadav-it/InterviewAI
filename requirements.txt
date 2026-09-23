@@ -3,6 +3,7 @@ langchain
 langchain-openai
 langchain-ollama
 scikit-fuzzy
+networkx
 pandas
 plotly
 pymupdf
