@@ -1,0 +1,11 @@
+streamlit
+langchain
+langchain-openai
+scikit-fuzzy
+pandas
+plotly
+pymupdf
+python-docx
+reportlab
+python-dotenv
+scipy
