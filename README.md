@@ -1,5 +1,15 @@
 # InterviewAI – AI-Based Mock Interview Performance & Readiness Advisor
 
+<p align="center">
+
+### 🚀 [LIVE DEMO](https://interviewai-hbdmsrdinkvzysrrpxmbe.streamlit.app)
+
+**AI-powered mock interview practice, answer evaluation, performance analysis and Fuzzy Logic-based readiness assessment.**
+
+</p>
+
+---
+
 ## 📌 Project Overview
 
 InterviewAI is an AI-powered mock interview platform designed to help students and job seekers practice interviews and understand their interview performance.
@@ -115,3 +125,5 @@ Performance Analysis
 Fuzzy Logic Readiness Assessment
     ↓
 Interview Report
+
+
