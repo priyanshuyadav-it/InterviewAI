@@ -689,6 +689,27 @@ with st.sidebar:
         """
     )
 
+    # Navigation state
+    if "_navigation_target" in st.session_state:
+        st.session_state["navigation"] = st.session_state.pop(
+            "_navigation_target"
+        )
+
+    if "navigation" not in st.session_state:
+        st.session_state["navigation"] = "🏠 Dashboard"
+
+    def sync_navigation():
+        navigation_map = {
+            "🏠 Dashboard": "Dashboard",
+            "🎤 Mock Interview": "Mock Interview",
+            "📊 Performance": "Performance",
+            "📄 Interview Report": "Interview Report"
+        }
+
+        st.session_state.page = navigation_map[
+            st.session_state.navigation
+        ]
+
     page_choice = st.radio(
         "Navigation",
         [
@@ -697,20 +718,15 @@ with st.sidebar:
             "📊 Performance",
             "📄 Interview Report"
         ],
-        label_visibility="collapsed"
+        key="navigation",
+        label_visibility="collapsed",
+        on_change=sync_navigation
     )
 
-    if page_choice == "🏠 Dashboard":
-        st.session_state.page = "Dashboard"
-
-    elif page_choice == "🎤 Mock Interview":
-        st.session_state.page = "Mock Interview"
-
-    elif page_choice == "📊 Performance":
-        st.session_state.page = "Performance"
-
-    elif page_choice == "📄 Interview Report":
-        st.session_state.page = "Interview Report"
+    # Keep the internal page state synchronized with the current
+    # sidebar selection without overriding a button-triggered navigation.
+    if not st.session_state.get("_navigation_target"):
+        sync_navigation()
 
     st.divider()
 
@@ -796,6 +812,7 @@ if st.session_state.page == "Dashboard":
     ):
 
         st.session_state.page = "Mock Interview"
+        st.session_state["_navigation_target"] = "🎤 Mock Interview"
 
         st.rerun()
 
